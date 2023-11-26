@@ -11,7 +11,13 @@ void delay(int seconds) {
 }
 // 랜덤 모듈을 사용하여 가상 날씨를 생성
 int generateRandomWeather() {
-    return rand() % 101;
+    // 현재 시간을 이용하여 시드 설정
+    srand((unsigned int)time(NULL));
+
+    int randomValue = rand() % 101;
+    randomValue = (randomValue + rand()) % 101;
+
+    return randomValue;
 }
 
 // 날씨 정보 출력
@@ -26,9 +32,9 @@ void printWeatherInfo(int weatherValue) {
         weatherString = "맑음";
     else if (weatherValue >= 50)
         weatherString = "선선함";
-    else if (weatherValue >= 26)
+    else if (weatherValue >= 26 && weatherValue < 50)
         weatherString = "흐림";
-    else if (weatherValue >= 20)
+    else if (weatherValue >= 20 && weatherValue < 26)
         weatherString = "소나기";
     else
         weatherString = "비";
@@ -38,10 +44,10 @@ void printWeatherInfo(int weatherValue) {
 // 날씨에 따른 음악 선택
 void chooseMusic(int weatherValue) {
     if (weatherValue >= 26) {
-        printf("선택된 음악: 잔잔한 음악\n");
+        printf("선택된 음악: 쾌활한 노래\n");
     }
     else {
-        printf("선택된 음악: 쾌할한 노래\n");
+        printf("선택된 음악: 잔잔한 음악\n");
     }
 }
 
@@ -67,6 +73,9 @@ int main() {
 
     // 날씨 정보 출력
     printWeatherInfo(weatherValue);
+
+    int randomValue = generateRandomWeather();
+    printf("Random Value: %d\n", randomValue);
 
     // 날씨에 따른 음악 선택 및 출력
     chooseMusic(weatherValue);
