@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 // 랜덤 모듈을 사용하여 가상 날씨를 생성
 int generateRandomWeather() {
@@ -35,4 +36,5 @@ int main() {
     printWeatherInfo(weatherValue);
 
     return 0;
+
 }
