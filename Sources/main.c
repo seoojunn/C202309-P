@@ -100,7 +100,7 @@ int main() {
     printf("분: ");
     scanf_s("%d", &minute);
 
-    // 구조체와 동적 메모리 할당을 이용한 알람 생성
+    // 구조체와 동적 메모리 할당을 이용한 알람 생성 
     Alarm* myAlarm = createAlarm(hour, minute);
 
     setAlarm(myAlarm);
