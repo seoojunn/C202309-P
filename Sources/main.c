@@ -20,7 +20,7 @@ int main() {
     releaseAlarm(myAlarm);
 
     // 알람이 해제되었을 경우
-    if (strcmp(myAlarm->release, "haeje") == 0) {
+    if (myAlarm->release[0] == 'h' && myAlarm->release[1] == 'a' && myAlarm->release[2] == 'e' && myAlarm->release[3] == 'j' && myAlarm->release[4] == 'e' && myAlarm->release[5] == '\0') {
         // 가상 날씨 생성
         int weatherValue = generateRandomWeather();
 
