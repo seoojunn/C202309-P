@@ -14,7 +14,7 @@ void delay(int seconds) {
 
 // 랜덤 모듈을 사용하여 가상 날씨를 생성하는 함수블록
 int generateRandomWeather() {
-    srand((unsigned int)time(NULL));
+    srand((unsigned int)time(NULL)); //시드 초기화
 
     int randomValue = rand() % 101;
     randomValue = (randomValue + rand()) % 101;
