@@ -61,6 +61,7 @@ Alarm* createAlarm(int hour, int minute) {
     newAlarm->hour = hour;
     newAlarm->minute = minute;
     newAlarm->release[0] = '\0'; // release 문자열 초기화
+    newAlarm->releaseAttempts = 0; // releaseAttempts 초기화
 
     return newAlarm;
 }
@@ -81,4 +82,14 @@ void setAlarm(Alarm* alarm) {
 void releaseAlarm(Alarm* alarm) {
     printf("알람을 해제하려면 'haeje'를 입력하세요: ");
     scanf_s("%s", alarm->release, sizeof(alarm->release));
+}
+
+// 해제시도 횟수 증가 함수블록
+void increaseReleaseAttempts(Alarm* alarm) {
+    alarm->releaseAttempts++;
+}
+
+// 해제시도 횟수 반환 함수블록
+int getReleaseAttempts(Alarm* alarm) {
+    return alarm->releaseAttempts;
 }
